@@ -10,6 +10,18 @@ cd hpc_sglang
 singularity pull docker://lmsysorg/sglang:latest
 ```
 
+
+### 依照自己的需求編修 sglang.sh , sglang_1node.slurm , sglang_2nodes.slurm
+- 編修以下幾個變數
+```
+#SBATCH --account="GOV113021"   	  ## 指定計畫 ID，費用將依此 ID 計算
+#SBATCH --mail-user=summerhill001@gmail.com  ## 設定接收通知的信箱
+--tp-size=2 --dp-size=1
+--context-length=8192
+--api-key=APIKEY
+--model-path Qwen/QwQ-32B
+```
+
 ### 互動模型 (請勿再登入節點運行)
 ```bash
 # 互動節點
@@ -29,12 +41,13 @@ sbatch sglang_1node.slurm
 sbatch sglang_2nodes.slurm
 ```
 
-### 取得運轉模型 (請自行更換 localhost 與 sk-)
+### 取得運轉模型 (請自行更換 localhost為計算節點的第一台  與 api key: sk-)
 ```bash
+squeue -u $(whoami) # 取得運轉中計算節點
 curl -X 'GET' "http://localhost:30000/v1/models" -H 'accept: application/json' -H "Authorization: Bearer APIKEY" 
 ```
 
-### 對話 (請自行更換 localhost 與 sk-)
+### 對話 (請自行更換 localhost為計算節點的第一台  與 api key: sk-)
 ```bash
 curl -X POST "http://localhost:30000/v1/chat/completions" \
 -H "Authorization: Bearer APIKEY" \
