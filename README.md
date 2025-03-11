@@ -10,9 +10,11 @@ cd hpc_sglang
 singularity pull docker://lmsysorg/sglang:latest
 ```
 
-### 互動模型
+### 互動模型 (請勿再登入節點運行)
 ```bash
 # 互動節點
+sbatch sleep.slurm
+ssh $(計算節點)
 bash sglang.sh
 ```
 
