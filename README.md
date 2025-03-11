@@ -1,5 +1,20 @@
 ## hpc_sglang
+### 內容涵蓋：  
+- 使用互動模式啟動 vLLM 或 sglang  
+- 透過 SLURM Job 將 vLLM 或 sglang 派送至單節點或多節點的執行方式  
+- 於單節點及跨節點 NCCL 與 InfiniBand 的設定方法  
 
+### 適用場景
+特別適合: 不想使用雲端 LLM API、需要處理機敏資料的使用者，例如：  
+- 本地 HPC 自動化 LLM API 部署：確保敏感數據不外流，提升安全性與隱私保護。  
+- 自動化工作流程：vLLM 或 sglang 任務派送後，可同步產生並處理資料。  
+- 臨時環境管理：任務完成後，將產生的資料回傳至指定位置，並自動銷毀容器，確保環境清潔。  
+
+### 連結：  
+- 📌 [vLLM 執行指南] https://github.com/c00cjz00/hpc_vllm 
+- 📌 [sglang 執行指南] https://github.com/c00cjz00/hpc_sglang
+
+  
 ### 登入 HPC 並下載相關套件
 ```bash
 ssh $ACCOUNT@login 140.110.148.5
