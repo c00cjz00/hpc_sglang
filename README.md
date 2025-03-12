@@ -33,6 +33,12 @@ singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_sglang/ho
 singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_sglang/home:$HOME /work/$(whoami)/github/hpc_sglang/sglang_latest.sif  huggingface-cli download google/gemma-3-27b-it
 ```
 
+### Gemma-3 要更新 transformers
+```
+cd /work/$(whoami)/github/hpc_vllm
+singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_sglang/home:$HOME /work/$(whoami)/github/hpc_sglang/sglang_latest.sif   pip install git+https://github.com/huggingface/transformers.git
+```
+
 ### 依照自己的需求編修 sglang.sh , sglang_1node.slurm , sglang_2nodes.slurm
 - 編修以下幾個變數
 ```
