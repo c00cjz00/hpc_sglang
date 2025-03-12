@@ -29,8 +29,8 @@ singularity pull docker://lmsysorg/sglang:latest
 ### HF 登入
 ```
 cd /work/$(whoami)/github/hpc_vllm
-singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif huggingface-cli login
-singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_vllm/home:$HOME /work/$(whoami)/github/hpc_vllm/vllm-openai_v0.7.3.sif huggingface-cli download google/gemma-3-27b-it
+singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_sglang/home:$HOME /work/$(whoami)/github/hpc_sglang/sglang_latest.sif  huggingface-cli login
+singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_sglang/home:$HOME /work/$(whoami)/github/hpc_sglang/sglang_latest.sif  huggingface-cli download google/gemma-3-27b-it
 ```
 
 ### 依照自己的需求編修 sglang.sh , sglang_1node.slurm , sglang_2nodes.slurm
