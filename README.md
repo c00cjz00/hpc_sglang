@@ -28,7 +28,7 @@ singularity pull docker://lmsysorg/sglang:latest
 
 ### HF 登入
 ```
-cd /work/$(whoami)/github/hpc_vllm
+cd /work/$(whoami)/github/hpc_sglang
 singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_sglang/home:$HOME /work/$(whoami)/github/hpc_sglang/sglang_latest.sif  huggingface-cli login
 singularity exec --nv --no-home -B /work -B /work/$(whoami)/github/hpc_sglang/home:$HOME /work/$(whoami)/github/hpc_sglang/sglang_latest.sif  huggingface-cli download google/gemma-3-27b-it
 ```
